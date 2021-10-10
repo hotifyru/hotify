@@ -10,6 +10,7 @@
             "Hotify\\Hotify\\": "src/"
         }
     },
+    "license": "MIT",
     "authors": [
         {
             "name": "HOTIFY",
