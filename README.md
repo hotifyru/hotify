@@ -1,3 +1,16 @@
-# HOTIFY
+# Library for Hotify.ru
+## Using
+Just a few lines of code:
 
-Пакет для сервиса Hotify.ru
+    $apiToken = YOUR_TOKEN_HERE;
+    $appId = YOUR_APP_ID_HERE;
+    
+    $hotify = new Hotify($apiToken);
+    $hotify
+        ->title('First notification')
+        ->text('Hello World!')
+        ->to($appId)
+        ->send();
+            
+That's all!
+            
