@@ -7,7 +7,7 @@ Just a few lines of code:
     
     $hotify = new Hotify($apiToken);
     $hotify
-        ->title('First notification')
+        ->title('First notification') //optional
         ->text('Hello World!')
         ->to($appId)
         ->send();
