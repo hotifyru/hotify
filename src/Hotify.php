@@ -23,7 +23,7 @@ class Hotify
     }
     
     /**
-     * Заголовок уведомления
+     * Notification title
      *
      * @param  string $title
      * @return Hotify
@@ -36,7 +36,7 @@ class Hotify
     }
     
     /**
-     * Текст уведомления
+     * Notification text
      *
      * @param  string $text
      * @return Hotify
@@ -49,7 +49,7 @@ class Hotify
     }
     
     /**
-     * Приложение - адресат
+     * Application
      *
      * @param  int $app_id
      * @return Hotify
@@ -63,7 +63,7 @@ class Hotify
 
     
     /**
-     * Отправить уведомление
+     * Send it
      *
      * @return array
      */
@@ -82,12 +82,12 @@ class Hotify
         } catch (ClientException $e) {
             return [
                 'success' => false,
-                'error' => 'Ошибка запроса'
+                'error' => 'Request error'
             ];
         } catch (\Exception $e) {
             return [
                 'success' => false,
-                'error' => 'Неизвестная ошибка'
+                'error' => 'Unknown error'
             ];
         }
     }
