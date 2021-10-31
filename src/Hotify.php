@@ -70,7 +70,7 @@ class Hotify
     public function send()
     {
         try {
-            $response = $this->client->request('POST', 'notification', [
+            $response = $this->client->request('POST', 'notifications', [
                 'json' => [
                     'app_id' => $this->to,
                     'title' => $this->title,
