@@ -3,7 +3,7 @@
 Just a few lines of code:
 
     $apiToken = YOUR_TOKEN_HERE;
-    $appId = YOUR_APP_ID_HERE;
+    $appId = YOUR_APP_ID_OR_TAG_HERE; 
     
     $hotify = new Hotify($apiToken);
     $hotify
