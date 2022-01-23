@@ -49,14 +49,14 @@ class Hotify
     }
     
     /**
-     * Application
+     * Application id or tag
      *
-     * @param  int $app_id
+     * @param  mixed $appIdOrTag
      * @return Hotify
      */
-    public function to(int $app_id)
+    public function to($appIdOrTag)
     {
-        $this->to = $app_id;
+        $this->to = $appIdOrTag;
 
         return $this;
     }
@@ -69,13 +69,20 @@ class Hotify
      */
     public function send()
     {
+        $json = [
+            'title' => $this->title,
+            'text' => $this->text,
+        ];
+
+        if (is_numeric($this->to)) {
+            $json['app_id'] = $this->to;
+        } else {
+            $json['tag'] = $this->to;
+        }
+
         try {
             $response = $this->client->request('POST', 'notifications', [
-                'json' => [
-                    'app_id' => $this->to,
-                    'title' => $this->title,
-                    'text' => $this->text,
-                ]
+                'json' => $json
             ]);
 
             return json_decode($response->getBody()->getContents(), true);
