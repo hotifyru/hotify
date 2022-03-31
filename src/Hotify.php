@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 
 class Hotify
 {
-    const URL = 'https://hotify.ru/api/v1.0/';
+    const URL = 'https://hotify.pw/api/v1/';
 
     public function __construct(string $token)
     {
