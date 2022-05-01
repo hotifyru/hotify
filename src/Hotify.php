@@ -3,6 +3,7 @@
 namespace Hotify\Hotify;
 
 use GuzzleHttp\Client;
+use Hotify\Hotify\NotificationPriority;
 use GuzzleHttp\Exception\ClientException;
 
 
@@ -20,6 +21,7 @@ class Hotify
             'base_uri' => self::URL,
             'headers' => $headers,
         ]);
+        $this->priority = NotificationPriority::DEFAULT;
     }
     
     /**
@@ -47,7 +49,40 @@ class Hotify
 
         return $this;
     }
+        
+    /**
+     * Приоритет сообщения
+     *
+     * @param  string $priority
+     * @return Hotify
+     */
+    public function priority(string $priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
     
+    /**
+     * Высокий приоритет
+     *
+     * @return Hotify
+     */
+    public function highPriority()
+    {
+        return $this->priority(NotificationPriority::HIGH);
+    }
+    
+    /**
+     * Низкий приоритет
+     *
+     * @return Hotify
+     */
+    public function lowPriority()
+    {
+        return $this->priority(NotificationPriority::LOW);
+    }
+
     /**
      * Application id or tag
      *
@@ -72,6 +107,7 @@ class Hotify
         $json = [
             'title' => $this->title,
             'text' => $this->text,
+            'priority' => $this->priority
         ];
 
         if (is_numeric($this->to)) {
@@ -79,7 +115,7 @@ class Hotify
         } else {
             $json['tag'] = $this->to;
         }
-
+        
         try {
             $response = $this->client->request('POST', 'notifications', [
                 'json' => $json
