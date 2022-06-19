@@ -3,7 +3,9 @@
     "description": "Hotify.ru",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "monolog/monolog": "^1.23|^2.0"
     },
     "autoload": {
         "psr-4": {
