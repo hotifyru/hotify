@@ -23,7 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Hotify\\Hotify\\ServiceProvider"
+                "Hotify\\Hotify\\HotifyServiceProvider"
             ]
         }
     }
