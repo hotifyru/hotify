@@ -51,7 +51,7 @@ class Hotify
     }
         
     /**
-     * Приоритет сообщения
+     * Notification priority
      *
      * @param  string $priority
      * @return Hotify
