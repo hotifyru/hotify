@@ -19,5 +19,12 @@
             "email": "info@hotify.ru"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hotify\\Hotify\\ServiceProvider"
+            ]
+        }
+    }
 }
