@@ -35,8 +35,13 @@ class HotifyHandler extends AbstractProcessingHandler
         $this->hotify
             ->to($this->appId)
             ->title($record['level_name'])
-            ->text($record['formatted'])
-            ->send();
+            ->text($record['formatted']);
+        
+        if ($record['level_name'] == 'ERROR') {
+            $this->hotify->highPriority();
+        }
+        
+        $this->hotify->send();
     }
 
     /**
